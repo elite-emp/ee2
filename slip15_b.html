@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>
+      <center><h1>Employee Registration</h1></center>
+      <input type="text" id="name" placeholder="Name" /><br />
+      <input type="text" id="email" placeholder="Email ID" /><br />
+      <input type="text" id="mobile" placeholder="Mobile Number" /><br />
+      <input type="text" id="department" placeholder="Department" /><br />
+      <input type="date" id="joiningDate" /><br />
+      <button onclick="validateForm()">Register</button>
+    </div>
+
+    <script>
+      function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let mobile = document.getElementById("mobile").value;
+        let department = document.getElementById("department").value;
+        let joiningDate = document.getElementById("joiningDate").value;
+
+        const namePattern = /^[A-Za-z]+$/;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const mobilePattern = /^[0-9]{10}$/;
+        const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+        if (!namePattern.test(name)) {
+          alert(
+            "Invalid name. Please enter a valid name containing only alphabets."
+          );
+        } else if (!emailPattern.test(email)) {
+          alert("Invalid email address. Please enter a valid email.");
+        } else if (!mobilePattern.test(mobile)) {
+          alert(
+            "Invalid mobile number. Please enter a 10-digit mobile number."
+          );
+        } else if (department === "") {
+          alert("Please enter a department.");
+        } else if (!datePattern.test(joiningDate)) {
+          alert(
+            "Invalid Joining Date format. Please enter a valid date in the format YYYY-MM-DD."
+          );
+        } else {
+          alert("Form submitted successfully!");
+          // Additional logic to submit the form can be added here
+        }
+      }
+    </script>
+  </body>
+</html>

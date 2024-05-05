@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>Pge</head>
+  <body>
+    <div>
+      <center><h1>Employee Registration</h1></center>
+      Name: <input type="text" id="name" /><br />
+      Date of Birth: <input type="date" id="dob" /><br />
+      Joining Date: <input type="date" id="joiningDate" /><br />
+      Salary: <input type="number" id="salary" /><br />
+      <button onclick="validateForm()">Register</button>
+    </div>
+
+    <script>
+      function validateForm() {
+        
+        let name = document.getElementById("name").value.trim();
+        let dob = document.getElementById("dob").value.trim();
+        let joiningDate = document.getElementById("joiningDate").value.trim();
+        let salary = parseInt(document.getElementById("salary").value.trim());
+
+        const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+        if (name === "") {
+          alert("Please enter a name.");
+        } else if (!datePattern.test(dob)) {
+          alert("Invalid Date of Birth format");
+        } else if (!datePattern.test(joiningDate)) {
+          alert("Invalid Joining Date format");
+        } else if (isNaN(salary) || salary <= 0) {
+          alert("Invalid salary. Please enter a valid positive number.");
+        } else {
+          alert("Form submitted successfully!");
+        }
+      }
+    </script>
+  </body>
+</html>

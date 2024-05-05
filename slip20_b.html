@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS SPA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="ValidationController">
+    <h2>Username Validation</h2>
+    <label>Username:</label> <input type="text" ng-model="username" /><br>
+    <label>Password:</label> <input type="password" ng-model="password" /><br>
+    <button ng-click="validate()">Validate</button>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('ValidationController', function($scope) {
+    $scope.validate = function() {
+        if (!$scope.username) {
+            alert("Enter username.");
+        } else if ($scope.username.length < 3) {
+            alert("Username is too short.");
+        } else if ($scope.password.length < 8 || !$scope.password) {
+            alert("Password should be minimum 8 characters.");
+        } else {
+            alert("Valid username.");
+        }
+    };
+});
+</script>
+
+</body>
+</html>

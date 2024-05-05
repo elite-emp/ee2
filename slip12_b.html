@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      <center><h1>Student Feedback Form</h1></center>
+      <label>Name:</label> <input type="text" id="name" /><br />
+      <label>Email:</label> <input type="email" id="email" /><br />
+      <label>Mobile:</label> <input type="text" id="mobile" /><br />
+      <label>Feedback:</label>
+      <select id="feedback">
+        <option value="Not good">Not good</option>
+        <option value="Good">Good</option>
+        <option value="Very good">Very good</option>
+        <option value="Excellent">Excellent</option></select
+      ><br />
+      <button onclick="validateForm()">Submit</button>
+    </div>
+
+    <script>
+      function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let mobile = document.getElementById("mobile").value;
+        let feedback = document.getElementById("feedback").value;
+
+        const namePattern = /^[A-Za-z[ ]*$/;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const mobilePattern = /^[0-9]{10}$/;
+
+        if (!namePattern.test(name)) {
+          alert("Invalid name. Please enter a valid name.");
+        } else if (!emailPattern.test(email)) {
+          alert("Invalid email address. Please enter a valid email.");
+        } else if (!mobilePattern.test(mobile)) {
+          alert(
+            "Invalid mobile number. Please enter a 10-digit mobile number."
+          );
+        } else {
+          alert("Form submitted successfully!");
+        }
+      }
+    </script>
+  </body>
+</html>
