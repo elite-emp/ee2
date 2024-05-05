@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="validationApp">
+<head>
+ <title>Username Validation</title>
+ <script src="angular.min.js"></script>
+ <script>
+ var validationApp = angular.module('validationApp', []);
+ validationApp.controller('mainController', function ($scope) 
+ {
+ $scope.validate = function ()
+ {
+ if (!$scope.username)
+ {
+ alert("Enter username");
+ } 
+ else if ($scope.username.length < 3)
+ {
+ alert("Username is too short");
+ } 
+ else 
+ {
+ alert("Valid username");
+ }
+ if (!$scope.password) 
+ {
+ alert("Password is required");
+ } 
+ else if ($scope.password.length < 8) 
+ {
+ alert("Password is too short");
+ }
+ };
+ });
+ </script>
+</head>
+<body ng-controller="mainController">
+ <div>
+ <h2>Username Validation</h2>
+ <form>
+ <label for="username">Username:</label>
+ <input type="text" id="username" ng-model="username">
+ <br><br>
+ <label for="password">Password:</label>
+ <input type="password" id="password" ng-model="password">
+ <br><br>
+ <button type="button" ng-click="validate()">Validate</button>
+ </form>
+ </div>
+</body>
+</html>

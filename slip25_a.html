@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="locationApp">
+<head>
+ <title>Current Page Location</title>
+ <script src="angular.min.js"></script>
+ <script>
+ var locationApp = angular.module('locationApp', []);
+locationApp.controller('mainController', function ($scope, 
+$location)
+ {
+ $scope.currentLocation = $location.absUrl();
+ });
+ </script>
+</head>
+<body ng-controller="mainController">
+ <div>
+ <h2>Current Page Location</h2>
+ <p>The current page location is: {{ currentLocation }}</p>
+ </div>
+</body>
+</html>
+<!--The current page location is: 
+file:///C:/Users/hp/OneDrive/Desktop/JS/Slip25-1.html#!/-->
