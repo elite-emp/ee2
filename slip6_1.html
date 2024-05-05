@@ -1,0 +1,23 @@
+<!--Q1)Write angular JS by using ng-click directive to display an alert message after clicking the
+element.-->
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Alert</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="ClickController">
+    <button ng-click="showAlert()">Click me</button>
+
+    <script>
+        angular.module('myApp', [])
+        .controller('ClickController', function($scope) {
+            $scope.showAlert = function() {
+                alert('Button clicked!');
+            };
+        });
+    </script>
+</body>
+</html>

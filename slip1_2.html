@@ -1,0 +1,66 @@
+<!--Q2)Create an HTML form that contain the Student Registration details and write a JavaScript to
+validate Student first and last name as it should not contain other than alphabets and age should
+be between 18 to 50-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Validation(){
+
+            var FirstName=document.getElementById('fname').value;
+            var LastName=document.getElementById('lname').value;
+            var Age=parseInt(document.getElementById('age').value);
+
+            const fregex = /^[A-Za-z]+$/;
+            const lregex = /^[A-Za-z]+$/;
+            const agerex = /^(1[8-9]|[2-4][0-9]|50)$/;
+
+            var isValid = true;
+            
+            if(FirstName.trim() === "") {
+                alert("Please enter First Name");
+                isValid = false;
+            }
+            else if(!fregex.test(FirstName)) {
+                alert('Please Enter a valid first name');
+                isValid = false;
+            }
+
+            if(LastName.trim() === "") {
+                alert("Please enter Last Name");
+                isValid = false;
+            }
+            else if(!lregex.test(LastName)) {
+                alert('Please Enter a valid Last name');
+                isValid = false;
+            }
+
+            if(!agerex.test(Age)) {
+                alert("Please Enter Age between 18 to 50");
+                isValid = false;
+            }
+
+            if(isValid) {
+                alert('Submitted');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Student Registration</h3>
+    <label for="fname">Enter First Name:</label>
+    <input type="text" name="fname"  id="fname"><br><br>
+
+    <label for="lname">Enter Last Name:</label>
+    <input type="text" name="lname"  id="lname"><br><br>
+
+    <label for="age">Enter your Age:</label>
+    <input type="text" name="age" id="age"><br><br>
+    
+    <input type="button" name="Submit" onclick="Validation()" value="submit">
+
+</body>
+</html>

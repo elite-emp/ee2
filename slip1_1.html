@@ -1,0 +1,35 @@
+<!--Q1)Create an HTML form for Login and write a JavaScript to validate email ID and Password
+using Regular Expression.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Validation(){
+            var emailid=document.getElementById('email').value;
+
+            const emailregex = new RegExp('^[a-z0-9]+@[a-z]+\.[a-z]{2,3}\.[a-z]{2,3}$');
+
+            if(!emailregex.test(emailid))
+            {
+                alert("invalid ");
+            }
+            else{
+                alert("valid");
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="email">Email:</label>
+    <input type="text" id="email"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <input type="button" name="Submit" onclick="Validation()" value="submit">
+</body>
+</html>

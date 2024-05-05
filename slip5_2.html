@@ -1,0 +1,41 @@
+<!--Q2)Using angular js create a SPA to carry out validation for a username entered in a textbox. If the
+textbox is blank, alert “Enter username”. If the number of characters is less than three, alert ‟
+Username is too short”. If value entered is appropriate the print “Valid username” and
+password should be minimum 8 characters.-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Username Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="ValidationController">
+    <label for="username">Username:</label>
+    <input type="text" id="username" ng-model="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" ng-model="password">
+    <br>
+    <button ng-click="validateFields()">Submit</button>
+</div>
+
+<script>
+    angular.module('myApp', [])
+    .controller('ValidationController', function($scope) {
+        $scope.validateFields = function() {
+            if (!$scope.username) {
+                alert("Enter username");
+            } else if ($scope.username.length < 3) {
+                alert("Username is too short");
+            } else if (!$scope.password || $scope.password.length < 8) {
+                alert("Password should be minimum 8 characters");
+            } else {
+                alert("Valid username and password");
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
